@@ -12,9 +12,10 @@ class SearchByTarget implements SearchQuery
     private $value;
     private $strict;
     private $xyhw;
+    private $page;
     private $t;
 
-    public function __construct(array $fields, $value, bool $strict = false, $xyhw = null, $t = null)
+    public function __construct(array $fields, $value, bool $strict = false, $xyhw = null, $t = null, $page = null)
     {
         Assertion::allInArray($fields, ['id', 'source']);
 
@@ -23,6 +24,7 @@ class SearchByTarget implements SearchQuery
         $this->strict = $strict;
         $this->xyhw = $xyhw;
         $this->t = $t;
+        $this->page = $page;
     }
 
     public function getPath() : string
